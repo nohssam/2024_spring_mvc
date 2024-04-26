@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- 오라클 접속 정보 입력 -->
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.OracleDriver" />
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe" />
+		<property name="username" value="c##ictedu" />
+		<property name="password" value="1111" />
+	</bean>
+	
+	<!-- mybatis:config(mapper위치) -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"  />
+		<property name="mapperLocations" value="classpath*:com/ict/*/service/*_mapper.xml" />
+	</bean>
+	
+	<!-- mybatis: SqlSessionTemplate (실제 실행하는 클래스)-->
+	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg ref="sqlSessionFactory" />
+	</bean>
+	
+	<!-- DAO -->	
+	 <bean id="dao" class="com.ict.edu4.service.DAO">
+		<property name="sqlSessionTemplate" ref="sqlSessionTemplate" />
+	</bean> 
+	
+	<bean id="guestBookDAO" class="com.ict.guestbook.service.GuestBookDAO">
+		<property name="sqlSessionTemplate" ref="sqlSessionTemplate" />
+	</bean>
+	
+</beans>
+
+
+
+
+
+
+
+
+

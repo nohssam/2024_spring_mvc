@@ -1,0 +1,54 @@
+google을 이용한 메일 보내기
+  1. google에서 계정관리 - 보안 
+  2. Google에 로그인 하는 방법 - 2차 인증하기
+  3. 검색창 앱 비밀번호 
+     앱 이름 ict_mail_test 
+     앱 비밀번호  nerl xfol dmae ubqf
+
+=========================================
+1. pom.xml에서 라이브러리 넣기 
+   		<!-- 이메일 -->
+			<dependency>
+        	<groupId>javax.mail</groupId>
+        	<artifactId>javax.mail-api</artifactId>
+        	<version>1.6.2</version> 
+   		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>5.3.18</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.mail</groupId>
+			<artifactId>javax.mail</artifactId>
+			<version>1.6.2</version>
+		</dependency>
+
+
+2. mail-context.xml 생성
+
+    <!-- 이메일 관련 -->
+    <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+        <property name="host" value="smtp.gmail.com"/>
+        <property name="port" value="587"/>
+        <property name="defaultEncoding" value="utf-8"/>
+        <property name="username" value=""/>
+        <property name="password" value=""/>        
+        <property name="javaMailProperties" >
+             <props>
+                <prop key="mail.transport.protocol">smtp</prop>
+                <prop key="mail.smtp.auth">true</prop>
+                <prop key="mail.smtp.starttls.enable">true</prop>
+                <prop key="mail.debug">true</prop>
+                <prop key="mail.smtp.ssl.trust">smtp.gmail.com</prop>
+                <prop key="mail.smtp.ssl.protocols">TLSv1.2</prop>
+            </props>
+        </property>        
+    </bean>
+
+3. web.xml에서 mail-context.xml 추가
+===============================================
+
+
+
+ 

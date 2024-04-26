@@ -1,0 +1,26 @@
+-- CREATE SEQUENCE board_seq
+-- increment by 1
+-- start with 1
+-- nocycle
+
+-- CREATE SEQUENCE group_seq
+-- increment by 1
+-- start with 1
+-- nocycle
+
+-- AUTO_INCREMENT는 하나만 가능
+-- groups 도 자동 증가해야 된다.
+
+CREATE TABLE board(
+ bo_idx INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+ writer VARCHAR(60) NOT NULL,
+ title VARCHAR(60) NOT NULL,
+ content LONGTEXT NOT NULL,
+ pwd  CHAR(255) NOT NULL,
+ hit INT NOT NULL,
+ groups INT NOT NULL,
+ step INT NOT NULL,
+ lev INT NOT NULL,
+ regdate datetime NOT NULL,
+ f_name VARCHAR(255)
+);
