@@ -42,8 +42,20 @@
 	function data_go2() {
 		location.href="data_go2.do";
 	}
+	function data_go3() {
+		location.href="data_go3.do";
+	}
 	function transaction_go() {
 		location.href="transaction_go.do";
+	}
+	function chattingPage_go() {
+		location.href="chattingPage.do";
+	}
+	function chattingPage_go2() {
+		location.href="chat2.do";
+	}
+	function chattingPage_go3() {
+		location.href="chat3.do";
 	}
 </script>
 </head>
@@ -60,8 +72,11 @@
 	<button onclick="emil_send()">이메일 보내기</button>
 	<button onclick="data_go()">공공데이터 미세먼지(xml)</button>
 	<button onclick="data_go2()">공공데이터 미세먼지(json)</button>
+	<button onclick="data_go3()">(json(오류발생))</button>
 	<button onclick="transaction_go()">트랜잭션</button>
-	
+	<button onclick="chattingPage_go()">채팅(js_오류)</button>
+	<button onclick="chattingPage_go2()">채팅2(mvc)</button>
+	<button onclick="chattingPage_go3()">채팅3(mvc)</button>
 </body>
 </html>
 

@@ -32,6 +32,7 @@ public class MemberController {
 			return mv;
 		}else {
 			session.setAttribute("loginChk", "ok");
+			session.setAttribute("loginMember", mvo2);
 			// admin 으로 성공시 
 			if(mvo2.getM_id().equals("admin")) {
 				session.setAttribute("admin", "ok");
